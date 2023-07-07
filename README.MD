@@ -2,4 +2,4 @@
 
 ## Integrante: Fernando Torrez
 
-## Descripción: copiar una estructura web en HTML + levantar servidor en express
+## Descripción: agregar estilos e iconos al header y footer.
