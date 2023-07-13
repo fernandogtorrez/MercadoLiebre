@@ -3,20 +3,48 @@ body.index {
   width: 100vw;
 }
 
+/*FLEXBOX MAQUETADO*/
+.index {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.index header {
+  width: 100%;
+}
+
+.index footer {
+  width: 98%;
+}
+
+/*FLEXBOX HEADER*/
+.index .index__header--container {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  align-items: center;
+  justify-content: space-between;
+}
+.index .index__header__logo,
+.index__header__form {
+  width: 50%;
+}
+
+.index__header__form input {
+  width: 65%;
+  height: 21px;
+}
+
 /*HEADER*/
 
 .index header {
   background-color: var(--amarillo);
   display: flex;
   flex-direction: column;
-}
-
-.index__header__search form {
-  display: flex;
-}
-
-.index__header__search {
-  width: 50px;
+  padding: 10px;
 }
 
 .index__header__logo {
@@ -36,17 +64,15 @@ body.index {
   padding: 0;
 }
 
-.index__header__ul--shop {
-  margin-bottom: 20px;
-}
-
-.index__header__search form input {
-  border: 1px solid var(--grisOscuro);
+.index .fa-magnifying-glass {
+  color: var(--grisOscuro);
+  font-size: 15px;
+  background-color: white;
 }
 
 .burger-menu {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   background-color: var(--azul);
   text-align: center;
   margin-top: 10px;
@@ -55,8 +81,84 @@ body.index {
   margin-right: auto;
 }
 .burger-menu i {
-  margin-top: 7px;
+  margin-top: 12px;
   color: white;
+}
+
+/*HIDE HEADER EN MOBILE*/
+.index__header__ul--shop,
+.index__header__ul--user {
+  display: none;
+}
+
+/*MAIN*/
+
+.index__main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.index__main section article img {
+  width: 200px;
+}
+.index__main__banner {
+  width: 100%;
+}
+
+.main__section--ofertas article,
+.main__section--ultimaVista article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  margin-bottom: 10px;
+  width: 300px;
+  border-radius: 5px;
+}
+.index h3 {
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.index h4 {
+  margin-top: 30px;
+  font-weight: 300;
+  display: none;
+}
+.main__section--ofertas-containerInfo {
+  border-top: 1px solid #ebebeb;
+  width: 100%;
+  padding: 15px;
+  position: relative; /* esto es para que cuando le demos los valores al icóno del NO camion salga volando al top del header LITERAL!! */
+}
+
+.main__section--ofertas article i {
+  display: block;
+  font-size: 16px;
+  padding: 5px;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #39b54a;
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  right: 20px;
+  top: -15px;
+  color: #39b54a;
+}
+
+.index__main__section__article--descuento {
+  color: #39b54a;
+  text-transform: lowercase;
+  display: inline;
+  margin-left: 5px;
+}
+
+.index__main__section__article--price {
+  display: inline;
 }
 
 /*FOOTER*/
@@ -84,4 +186,78 @@ body.index {
 
 .index__footer h6 {
   color: var(--grisOscuro);
+}
+
+/*LOS DISPLAYS NONES*/
+.sectionOfertas {
+  display: none;
+  /*para visualizar una sóla section*/
+}
+
+.index article.displayNone-mobile {
+  display: none;
+  /*para que se vea un sólo articulo en mobile*/
+}
+
+@media (min-width: 768px) {
+  .main__section--ofertas article {
+    box-shadow: 0px 0px 10px rgb(100, 100, 100);
+  }
+  .index h4 {
+    display: block;
+  } /*LOS H4 se empiezan a ver desde TABLET debido a consignas del ejercicio anterior*/
+
+  /*DISPLAY ARTICLES TABLET*/
+  .index article.displayTablet {
+    display: flex;
+  }
+
+  .index .index__main--articleContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+  }
+  /*SHOW HEADER EN TABLET Y DESKTOP*/
+  .index__header__ul--shop,
+  .index__header__ul--user {
+    display: block;
+  }
+
+  .index .burger-menu {
+    display: none;
+  }
+
+  /*HEADER FLEXBOX TABLET*/
+  .index .index__header__logo,
+  .index__header__form {
+    width: 30%;
+  }
+  .index__header__menu {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+  }
+
+  .index__header__ul--shop,
+  .index__header__ul--user {
+    display: flex;
+    gap: 15px;
+  }
+
+  .index__header__ul--shop li a,
+  .index__header__ul--user li a {
+    font-size: 15px;
+  }
+
+  .index__header__ul--user li i {
+    margin-left: 5px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .index .index__main--articleContainer article {
+    display: flex;
+    width: 90%;
+  }
 }
